@@ -1,0 +1,116 @@
+@import '../mixins';
+@import '../themes.module.scss';
+
+.container {
+  @include flex(column, null, null, 40px);
+  padding: 25px;
+  position: relative;
+
+  & * {
+    box-sizing: border-box;
+  }
+  
+  &_header {
+    @include flex(null, center, space-between, 0);
+
+    &_text {
+      padding-left: 30px;
+      background: none;
+    }
+
+    &_cart {
+      @include flex(null, center, flex-end, 30px);
+
+      &_funds {
+        @include flex(null, center, null, 10px);
+
+        & > span {
+          font-weight: 700;
+          background: none;
+        }
+
+        & > div {
+          @include flex(null, center, null, 5px);
+
+          & > span {
+            background: none;
+          }
+        }
+      }
+
+      &_buttons {
+        @include flex(null, center, null, 10px);
+        padding-right: 30px;
+
+        & > button {
+          padding: 7px 20px;
+          border: none;
+          border-radius: 5px;
+          color: #fff;
+          text-transform: uppercase;
+          white-space: nowrap;
+          transition: 0.2s;
+          box-shadow: 3px 3px 8px 0px rgba(34, 60, 80, 0.2);  
+          cursor: pointer;
+
+          &:first-child {
+            background-color: #1cb09a;
+
+            &:hover {
+              background-color: #1ca38f;
+            }
+          }
+
+          &:last-child {
+            background-color: #e5e5e5;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@media screen and (min-width: 600px) and (max-width: 900px) {
+  .container {
+    gap: 20px;
+
+    &_header {
+      &_text {
+        padding-left: 20px;
+        align-self: start;
+      }
+
+      &_cart {
+        @include flex(column, flex-end, flex-end, 20px);
+        padding-right: 20px;
+
+        &_buttons {
+          padding: 0;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 599px) {
+  .container {
+    padding: 10px;
+    gap: 20px;
+
+    &_header {
+      @include flex(column, flex-start, null, 20px);
+
+      &_cart {
+        width: 100%;
+        gap: 20px;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+
+        &_buttons {
+          padding: 0;
+        }
+      }
+    }
+  }
+}

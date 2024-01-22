@@ -1,0 +1,110 @@
+@import '../mixins';
+@import '../variables';
+@import '../themes.module.scss';
+
+$gradient-colors: ( 
+  current: linear-gradient(to right, #4aa7ae, #61d8de),
+  passed: linear-gradient(to right, #57c087, #6aeda7),
+  inspect: linear-gradient(to right, #eb966f, #f5b89c),
+  overdue: linear-gradient(to right, #ed6974, #f0959e),
+);  
+
+$colors: ( 
+  all: rgb(255, 255, 255),
+  current: rgb(25, 118, 210),
+  passed: rgb(27, 161, 141),
+  inspect: rgb(248, 141, 91),
+  overdue: rgb(235, 96, 110),
+);  
+
+$colors_2: ( 
+  all: rgba(0, 0, 0, 0.5),
+  current: rgba(26, 117, 209, 0.3),
+  passed: rgba(28, 163, 143, 0.3),
+  inspect: rgba(248, 141, 91, 0.3),
+  overdue: rgba(235, 96, 110, 0.3),
+); 
+
+.container {
+  @include blockStyle();
+  @include flex(column, null, null, 20px);
+  flex: 1;                                                                        
+  min-width: 300px;
+
+  & * {
+    box-sizing: border-box;               
+  }                       
+}
+
+.header {
+  @include flex(null, center, space-between, 0);
+  padding-left: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #e5e5e5;
+  text-transform: uppercase;
+
+  &_button {
+    @include flex(null, center, null, 0);
+    border-radius: 5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;   
+      transform: translateX(5px) 
+    }
+  }
+}
+
+.info {
+  @include flex(column, null, space-between, 5px);
+  flex: 1;
+  
+  & > div {
+    @include flex(null, center, null, 20px);
+    border-radius: 7px;
+
+    & > div:first-of-type {
+      aspect-ratio: 1/1;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+
+    & > div:last-of-type {
+      text-transform: uppercase;
+      padding: 10px 0;
+
+      & > h2 {
+        font-size: 1.5em;
+      }
+    }
+  }
+
+  @each $key, $value in $colors {
+    &_#{$key} {
+      & > div:first-of-type {
+        color: $value;
+      }
+    }
+  }
+
+  @each $key, $value in $colors_2 {   
+    &_#{$key} {
+      border: 1px solid $value;
+      & > div:first-of-type {
+        background-color: $value;
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .container {
+    min-width: 250px;
+  }
+}

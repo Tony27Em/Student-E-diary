@@ -1,0 +1,84 @@
+@import '../mixins';
+@import '../variables';
+@import '../themes.module.scss';
+
+.container {
+  @include blockStyle();
+  @include flex(column, null, null, 20px);
+  min-width: 300px;
+  max-height: 500px; // не пойдет!
+  flex: 2;
+  overflow-y: hidden;
+}
+
+.header {
+  @include flex(null, center, space-between, 10px);
+  padding-left: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #e5e5e5;
+  text-transform: uppercase;
+}
+
+.awards {
+  overflow-y: auto;
+  height: calc(100% - $header-height - $header-margin-bottom);
+  margin-top: auto;
+  
+  &_list {
+    @include flex(column, null, null, 10px); 
+    padding-right: 10px;
+
+    &_item {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      align-items: center;
+      font-size: 1.2em;
+      padding-bottom: 10px;
+      padding: 5px 10px;
+      border-bottom: 1px solid lightgray;
+
+      &_date {
+        grid-area: 1/1/2/3;
+        margin-bottom: 10px;
+        font-size: 1.2em;
+        font-weight: 700;
+        text-align: center;
+        text-decoration: underline;
+      }
+
+      & > div {
+        & > p {
+          font-weight: 600;
+          font-size: 1.2em;
+        }
+      }
+
+      &_points {
+        @include flex(null, center, center, 15px);
+        justify-self: end;
+
+        &_main {
+          width: 25px;
+          height: 25px;
+          padding: 3px;
+          border-radius: 50%;
+          display: grid;
+          place-items: center;
+          color: #fff;
+          font-weight: 700;
+        }
+
+        &_amount {
+          @include flex(null, center, null, 5px);
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .container {
+    min-width: 250px;
+  }
+}

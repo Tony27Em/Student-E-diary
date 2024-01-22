@@ -1,0 +1,47 @@
+@mixin flex($direction: row, $align-items: initial, $justify-content: initial, $gap: 0) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align-items;
+  justify-content: $justify-content;
+  gap: $gap;
+}
+
+@mixin blockStyle() {
+  border-radius: 5px;
+  box-shadow: 3px 3px 8px 0px rgba(34, 60, 80, 0.2);  
+  padding: 20px;
+
+  @media (max-width: 400px) {
+    padding: 10px;
+  }
+}
+
+// @mixin mobile { 
+//   @media screen and (max-width: 480px) {
+//     @content;
+//   }
+// }
+
+// @mixin tablet { 
+//   @media screen and (max-width: 768px) {
+//     @content;
+//   }
+// }
+
+// @mixin desktop { 
+//   @media screen and (max-width: 1024px) {
+//     @content;
+//   }
+// }
+
+// @mixin L-desktop { 
+//   @media screen and (max-width: 1200px) {
+//     @content;
+//   }
+// }
+
+// @mixin XL-desktop { 
+//   @media screen and (max-width: 1920px) {
+//     @content;
+//   }
+// }

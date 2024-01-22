@@ -1,0 +1,23 @@
+@import '../mixins';
+@import '../themes.module.scss';
+
+.container {
+  @include flex(column, null, null, 30px);
+  padding: 25px;
+
+  &_header {
+    padding-left: 30px; 
+    background: none;
+  }
+
+  &_chart {
+    @include blockStyle();
+    padding: 30px;
+    height: 500px;
+  }
+  
+  &_list {
+    @include blockStyle();
+    padding: 40px 25px;
+  }
+}

@@ -1,0 +1,39 @@
+@import '../mixins';
+@import '../variables';
+@import '../themes.module.scss';
+
+.container {
+  @include blockStyle();
+  @include flex(column, null, null, 20px);
+  flex: 1;
+}
+
+.header {
+  @include flex(null, center, space-between, 15px);
+  padding-left: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #e5e5e5;
+  text-transform: uppercase;
+
+  &_button {
+    @include flex(null, center, null, 0);
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 5px;
+    transition: 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;   
+      transform: translateX(5px) 
+    }
+  }
+}
+
+.chart {
+  flex: 1;
+  position: relative;
+  width: 20vw;
+  min-width: 280px;
+  align-self: center;
+}

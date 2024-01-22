@@ -1,0 +1,46 @@
+@import '../mixins';
+@import '../themes.module.scss';
+
+.container {
+  @include flex(null, null, null, 30px);
+  flex-wrap: wrap;
+  padding: 25px;  
+}
+
+.left {
+  @include flex(column, null, null, 30px);
+  flex: 3;
+
+  &_blocks_1,
+  &_blocks_2 {
+    @include flex(null, null, null, 30px);
+    flex-wrap: wrap;
+    // min-width: 200px;
+  }
+}
+
+.right {
+  @include flex(null, null, null, 0);
+  flex: 1;
+  min-width: 300px;
+}
+
+@media (max-width: 400px) {
+  .container {
+    gap: 20px;
+    padding: 10px;
+  }
+
+  .left {
+    gap: 20px;
+
+    &_blocks_1,
+    &_blocks_2 {
+      gap: 20px;
+    }
+  }
+
+  .right {
+    min-width: 250px;
+  }
+}

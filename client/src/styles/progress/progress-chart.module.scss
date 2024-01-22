@@ -1,0 +1,15 @@
+@import '../mixins';
+
+.container {
+  @include flex(null, null, null, 20px);
+  height: 100vh;
+  padding: 25px;
+}
+
+.progress_chart {
+  flex: 1;
+}
+
+.lessons_list {
+  flex: 1;
+}

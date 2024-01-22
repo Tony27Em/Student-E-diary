@@ -1,0 +1,121 @@
+@import '../mixins';
+
+.lessons {
+  @include flex(column, null, null, 20px);
+
+  &_legend {
+    @include flex(null, center, space-between, 0);
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e5e5e5;
+
+    &_left {
+      @include flex(null, center, center, 30px);
+
+      & > div {
+        @include flex(null, center, center, 7px);
+        margin-left: 20px;
+        text-transform: uppercase;
+      }
+
+      &_marker {
+        width: 20px;
+        aspect-ratio: 1/1;
+        border-radius: 3px;
+      }
+    }
+
+    &_right {
+      @include flex(null, center, center, 30px);
+
+      & > div {
+        @include flex(null, center, center, 7px);
+        margin-right: 20px;
+        text-transform: uppercase;
+      }
+
+      &_marker {
+        width: 20px;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  &_list {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 10px 5px;
+
+    &_item {
+      @include flex(column, center, space-around, 15px);
+      padding: 5px;
+      position: relative;
+      border-radius: 5px;
+      background-color: #f1f6fa;
+      transition: 0.5s;
+  
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 8px rgba($color: #000000, $alpha: 0.5);
+        z-index: 1;
+      }
+
+      & > small {
+        color: #000;
+      }
+  
+      & > div:first-of-type {
+        font-size: 1.3em;
+        color: #000;
+      }
+  
+      &_grades {
+        @include flex(null, center, flex-end, 2px);
+        align-self: end;
+  
+        & > span {
+          width: 25px;
+          height: 25px;
+          border-radius: 50%;
+          line-height: 25px;
+          text-align: center;
+          font-weight: 600;
+          color: #fff;
+          display: grid;
+          place-items: center;
+  
+          &:first-child {
+            background-color: #1bd2c7;
+          }
+  
+          &:last-child {
+            background-color: #ffc730;
+          }
+        }
+      }
+  
+      &_info {
+        @include flex(column, null, center, 20px);
+        padding: 15px 20px;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -100%);
+        color: #fff;
+        text-align: center;
+        border-radius: 5px;
+        background-color: #4a5c72;
+        box-shadow: 0 5px 8px rgba(34, 60, 80, 0.5);  
+        white-space: nowrap;
+        z-index: 999;
+  
+        & > div:first-of-type {
+          font-weight: 700;
+          text-transform: uppercase;
+          border-bottom: 1px solid #fff;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,51 @@
+@import 'mixins';
+@import './themes.module.scss';
+
+.container {
+  padding: 50px;
+  margin: auto;
+
+  & * {
+    box-sizing: border-box;
+  }
+
+  &_header {
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+    background: none;
+  }
+  
+  &_faq {
+    @include flex(null, center, center, 20px);
+    flex-wrap: wrap-reverse;
+  
+    &_image {
+      max-width: 512px;
+      height: auto;
+      align-self: flex-end;
+    }
+
+    &_list {
+      min-width: 300px;
+      flex: 1;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    padding: 15px;
+
+    &_header {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+    }
+
+    &_faq {
+      &_image {
+        min-width: 256px;
+      }
+    }
+  }
+}

@@ -1,0 +1,91 @@
+@import '../mixins';
+@import '../themes.module.scss';
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+
+  &_item {
+    @include flex(column, center, null, 0);
+    border-radius: 5px;
+    box-shadow: 3px 3px 8px 0px rgba(34, 60, 80, 0.2);  
+  
+    &_header {
+      @include flex(null, center, space-between, 0);
+      width: 100%;
+      padding: 15px 20px;
+      border-top-left-radius: 2px;
+      border-top-right-radius: 2px;
+
+      & > p {
+        font-size: 1.5em;
+        font-weight: 700;
+      }
+
+      & > button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        background-color: #1cb09a;
+        font-weight: 600;
+        text-transform: uppercase;
+        transition: 0.2s;
+        box-shadow: 3px 3px 8px 0px rgba(34, 60, 80, 0.2);  
+        cursor: pointer;
+
+        &:hover {
+          background-color: #1ca38f;
+        }
+
+        &:active {
+          transform: scale(0.95);
+        }
+      }
+    }
+
+    &_img {
+      width: 100%;
+      padding: 20px 0;
+      display: grid;
+      place-items: center;
+      background-color: #fff;
+
+      &:hover > img {
+        transform: scale(1.1);
+      }
+
+      & > img {
+        max-height: 200px;
+        user-select: none;
+        transition: 0.2s;
+      }
+    }
+
+    &_footer {
+      @include flex(column, null, space-between, 10px);
+      width: 100%;
+      height: 100%;
+      padding: 10px 20px;
+      border-bottom-left-radius: 2px;
+      border-bottom-right-radius: 2px;
+
+      &_description {
+        flex: 1;
+      }
+
+      &_price {
+        @include flex(null, center, null, 15px);
+
+        & > div {
+          @include flex(null, center, null, 7px);
+        }
+      }
+
+      &_amount {
+        text-align: end;
+      }
+    }
+  }
+}

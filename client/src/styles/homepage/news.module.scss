@@ -1,0 +1,26 @@
+@import '../mixins';
+@import '../variables';
+@import '../themes.module.scss';
+
+.container {
+  @include flex(column, null, null, 20px);
+  @include blockStyle();
+  flex: 1;
+  align-self: start;
+}
+
+.header {
+  @include flex(null, center, space-between, 0);
+  padding-left: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #e5e5e5;
+  text-transform: uppercase;
+}
+
+.news_list {
+  overflow: auto;
+
+  & * {
+    font-family: 'Ysabeau Office', sans-serif;
+  }
+}

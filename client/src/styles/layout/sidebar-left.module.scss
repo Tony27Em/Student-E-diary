@@ -1,0 +1,93 @@
+@import '../mixins';
+@import '../variables';
+
+.container {
+  @include flex(column, null, null, 25px);
+  height: 100%;
+  min-width: 300px;
+  background-color: $main_color;
+  overflow-x: hidden; 
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.top {
+  @include flex(null, center, space-between, 0);
+  border-bottom: 1px solid #fff;
+  padding: 20px 15px 20px 20px;
+
+  &_logo {
+    @include flex(null, center, center, 10px);
+    flex: 1;
+
+    & > h3 {
+      font-size: 1.5em;
+      text-decoration: underline;
+    }
+  }
+
+  &_close {
+    display: grid;
+    place-items: center;
+    align-self: start;
+    margin-top: -10px;
+    margin-right: -10px;
+    padding: 10px;
+    border-radius: 5px;
+    color: #fff;
+    transition: 0.2s;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+
+.list {
+  @include flex(column, null, null, 10px);
+  padding: 0 15px;
+
+  &_item {
+    list-style-type: none; 
+
+    &_icon {
+      display: grid;
+      place-items: center;
+      font-size: 24px;
+    }
+    
+    &_name {
+      flex: 1;     
+      font-size: 1.1em;
+    }
+  }
+
+  & a {
+    @include flex(null, center, null, 25px);
+    width: 100%;
+    padding: 10px 15px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: #fff;
+      color: $main_color;
+      font-weight: 700;
+    }
+  }
+}
+
+.footer {
+  @include flex(column, null, flex-end, 0);
+  flex: 1;
+  color: #fff;
+
+  & > p {
+    border-top: 1px solid #fff;
+    padding: 10px 15px;
+  }
+}

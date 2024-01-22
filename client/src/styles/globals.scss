@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Ysabeau+Office:wght@400;600;700&display=swap');
+@import '../styles/_variables.scss';
+
+:root {
+  background-color: #f5f6fa;
+  color: $main_color;
+} 
+
+[data-theme='dark'] {
+  background-color: #1a2036;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Ysabeau Office', sans-serif;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: auto;
+  overflow-x: hidden;
+}
+
+main {
+  flex: 1;
+}
+
+#__next {
+  position: relative;
+
+  & > div:not(#login_page) {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  background-color: #e5e5e5;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $main_color;
+  border: 1px solid #e5e5e5;
+}
+
+button {
+  background: none;
+  border: none;
+}
+

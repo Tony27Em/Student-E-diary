@@ -1,0 +1,240 @@
+@import 'mixins';
+@import './themes.module.scss';
+
+.container {
+  padding: 25px;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  gap: 20px;
+  box-sizing: border-box;
+  width: 100%;
+  margin: auto;
+
+  &_header {
+    padding-left: 30px;
+    background: none;
+    grid-area: 1/1/2/3;
+  }
+
+  & > div {
+    padding: 30px;
+    border-radius: 5px;
+  }
+}
+
+.avatar {
+  @include flex(column, center, null, 20px);
+  box-shadow: 3px 3px 8px 0px rgba(34, 60, 80, 0.2);  
+  align-self: start;
+
+  &_image {
+    width: 256px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    border: 1px solid #e5e5e5;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+
+    & > img {
+      width: 100%;
+      aspect-ratio: 1/1;
+    }
+  }
+
+  &_input {
+    display: none;
+  }
+
+  &_label {
+    padding: 15px 40px;
+    background-color: #42a5f5;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: 0.2s;
+    user-select: none;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #1976d2;
+    }
+  }
+}
+
+.about {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px 50px;
+  grid-area: 2/2/5/3;
+  align-self: start;
+  box-shadow: 3px 3px 8px 0px rgba(34, 60, 80, 0.2);  
+
+  &_main {
+    @include flex(column, null, null, 20px);
+
+    &_inputs {
+      @include flex(null, center, null, 25px);
+
+      & > h4 {
+        text-transform: uppercase;
+        flex: 1;
+      }
+
+      & > input {
+        padding: 10px 20px;
+        flex: 1;
+        font-size: 1em;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        background-color: #f5f6fa;
+        color: #000;
+      }
+    }
+  }
+
+  &_social {
+    @include flex(column, null, null, 20px);
+  
+    &_inputs {
+      @include flex(null, center, null, 10px);
+
+      & > h4 {
+        text-transform: uppercase;
+        flex: 1;
+      }
+
+      & > input {
+        padding: 10px 20px;
+        flex: 1;
+        font-size: 1em;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        background-color: #f5f6fa;
+        color: #000;
+      }
+    }
+  }
+
+  &_buttons {
+    grid-area: 2/1/3/3;
+    justify-self: flex-end;
+    @include flex(null, center, null, 20px);
+
+    & > button {
+      padding: 15px 40px;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      font-weight: 600;
+      text-transform: uppercase;
+      transition: 0.2s;
+      user-select: none;
+      cursor: pointer;
+    }
+
+    &_edit {
+      padding: 15px 40px;
+      background-color: #42a5f5;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      font-weight: 600;
+      text-transform: uppercase;
+      transition: 0.2s;
+      user-select: none;
+      cursor: pointer;
+      
+      &:hover {
+        background-color: #1976d2;
+      }
+    }
+
+    &_save {
+      background-color: #42a5f5;
+
+      &:hover {
+        background-color: #1976d2;
+      }
+    }
+
+    &_cancel {
+      background-color: #f55d42;
+
+      &:hover {
+        background-color: #d22519;
+      }
+    }
+  }
+}
+
+.password {
+  @include flex(column, null, null, 20px);
+  width: max-content;
+  justify-self: center;
+  grid-area: 3/1/4/2;
+  box-shadow: 3px 3px 8px 0px rgba(34, 60, 80, 0.2);  
+  
+  &_inputs {
+    @include flex(null, center, null, 50px);
+    position: relative;
+
+    & > h4 {
+      text-transform: uppercase;
+      flex: 1;
+    }
+
+    & > div {
+      position: relative;
+
+      & > input {
+        flex: 1;
+        outline: none;
+        border: none;
+        background-color: #f5f6fa;
+        padding: 10px 40px 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        width: max-content;
+        color: #000;
+      }
+      
+      & > button {
+        border: none;
+        padding: 10px;
+        background: none;
+        cursor: pointer;
+        position: absolute;
+        right: 0;
+      }
+    }
+  }
+
+  &_button {
+    padding: 15px 40px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #fff;
+    background-color: #42a5f5;
+    transition: 0.2s;
+    user-select: none;
+    cursor: pointer;
+    
+    &:hover {
+      background-color: #1976d2;
+    }
+  }
+
+  &_warning {
+    text-align: center;
+    text-transform: uppercase;
+    color: red;
+  }
+}

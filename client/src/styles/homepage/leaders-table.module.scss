@@ -1,0 +1,71 @@
+@import '../mixins';
+@import '../variables';
+@import '../themes.module.scss';
+
+.container {
+  @include blockStyle();
+  @include flex(column, null, null, 20px);
+  flex: 2;
+  max-height: 500px;
+  min-width: 300px;
+  overflow-y: hidden;
+}
+
+.header {
+  @include flex(null, center, space-between, 10px);
+  flex-wrap: wrap;
+  padding-left: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #e5e5e5;
+  text-transform: uppercase;
+
+  &_buttons {
+    @include flex(null, center, flex-end, 10px);
+    min-width: max-content;
+    flex: 1;
+
+    & > button {
+      border-radius: 5px;
+      text-transform: uppercase;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.leaders {
+  height: calc(100% - $header-height - $header-margin-bottom);
+  overflow-y: auto;
+  
+  &_list {
+    @include flex(column, null, null, 3px); 
+    padding: 0 10px;
+    
+    &_item {
+      @include flex(null, center, space-between, 10px);
+      padding: 5px 15px;
+      font-size: 18px;
+
+      &_coins {
+        @include flex(null, center, null, 7px);
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .container {
+    min-width: 250px;
+  }
+
+  .leaders {
+    &_list{
+      &_item {
+        border-bottom: 1px solid lightgray;
+      }
+    }
+  }
+}
